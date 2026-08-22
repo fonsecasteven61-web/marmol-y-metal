@@ -1,0 +1,144 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ------------------------------------------------------
+// 1. USUARIOS ADMINISTRADORES (marmolymetal.hn/admin)
+// ------------------------------------------------------
+enum Rol {
+  SUPERADMIN
+  STAFF
+}
+
+model Usuario {
+  id            String   @id @default(uuid())
+  nombre        String
+  correo        String   @unique
+  contrasena    String
+  rol           Rol      @default(STAFF)
+  creadoEn      DateTime @default(now())
+  actualizadoEn DateTime @updatedAt
+
+  @@map("usuarios")
+}
+
+// ------------------------------------------------------
+// 2. CLIENTES (FAMILIARES / COMPRADORES)
+// ------------------------------------------------------
+model Cliente {
+  id            String      @id @default(uuid())
+  nombre        String
+  telefono      String
+  correo        String?
+  direccion     String?
+  fechaRegistro DateTime    @default(now())
+  
+  memoriales    Memorial[]
+
+  @@map("clientes")
+}
+
+// ------------------------------------------------------
+// 3. MEMORIALES (marmolymetal.hn/memorial/slug)
+// ------------------------------------------------------
+model Memorial {
+  id                 String       @id @default(uuid())
+  nombreDifunto      String
+  fechaNacimiento    DateTime
+  fechaFallecimiento DateTime
+  biografia          String?      @db.Text
+  fotoPrincipal      String       // URL en Supabase Storage
+  fotoPortada        String?      // URL en Supabase Storage
+  musicaUrl          String?      // URL MP3 en Supabase Storage
+  musicaActiva       Boolean      @default(true)
+  slug               String       @unique // ej: juan-jose-perez
+  codigoQr           String?      // URL de imagen QR descargable
+  activo             Boolean      @default(true)
+  velasContador      Int          @default(0)
+  
+  // Nuevos campos para la Ubicación Guiada
+  ubicacionUrl       String?      // Enlace de Google Maps / Waze
+  ubicacionTexto     String?      // Nombre del cementerio, nicho o descripción
+  
+  // Relación con Cliente
+  clienteId          String?
+  cliente            Cliente?     @relation(fields: [clienteId], references: [id], onDelete: SetNull)
+
+  // Subtablas asociadas
+  fotografias        Fotografia[]
+  videos             Video[]
+  mensajes           Mensaje[]
+
+  creadoEn           DateTime     @default(now())
+  actualizadoEn      DateTime     @updatedAt
+
+  @@map("memoriales")
+}
+
+// ------------------------------------------------------
+// 4. FOTOGRAFÍAS (GALERÍA)
+// ------------------------------------------------------
+model Fotografia {
+  id          String   @id @default(uuid())
+  memorialId  String
+  urlImagen   String   // URL en Supabase Storage
+  descripcion String?
+  orden       Int      @default(0)
+  creadoEn    DateTime @default(now())
+
+  memorial    Memorial @relation(fields: [memorialId], references: [id], onDelete: Cascade)
+
+  @@map("fotografias")
+}
+
+// ------------------------------------------------------
+// 5. VIDEOS (GALERÍA)
+// ------------------------------------------------------
+model Video {
+  id          String   @id @default(uuid())
+  memorialId  String
+  urlVideo    String   // YouTube / Vimeo / MP4
+  titulo      String?
+  creadoEn    DateTime @default(now())
+
+  memorial    Memorial @relation(fields: [memorialId], references: [id], onDelete: Cascade)
+
+  @@map("videos")
+}
+
+// ------------------------------------------------------
+// 6. MENSAJES (LIBRO DE CONDOLENCIAS)
+// ------------------------------------------------------
+model Mensaje {
+  id          String   @id @default(uuid())
+  memorialId  String
+  nombre      String
+  relacion    String?  // Ej. "Amigo", "Primo"
+  mensaje     String   @db.Text
+  aprobado    Boolean  @default(false) // Moderación en Panel Admin
+  fecha       DateTime @default(now())
+
+  memorial    Memorial @relation(fields: [memorialId], references: [id], onDelete: Cascade)
+
+  @@map("mensajes")
+}
+
+// ------------------------------------------------------
+// 7. PRODUCTOS (CATÁLOGO / TALLER)
+// ------------------------------------------------------
+model Producto {
+  id          String   @id @default(uuid())
+  nombre      String
+  descripcion String   @db.Text
+  precio      Decimal? @db.Decimal(10, 2)
+  categoria   String   // Ej. "Lápidas", "Placas", "Mantenimiento"
+  imagen      String   // URL de imagen en Supabase Storage
+  activo      Boolean  @default(true)
+  creadoEn    DateTime @default(now())
+
+  @@map("productos")
+}
