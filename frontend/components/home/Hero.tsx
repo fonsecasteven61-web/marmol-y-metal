@@ -39,7 +39,7 @@ export default function Hero() {
           {/* Botones de acción */}
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="https://wa.me/50488629149"
+              href="https://wa.me/50493181006"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#0e6251] hover:bg-[#0b4d3f] text-white px-5 py-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-semibold transition-all shadow-lg hover:shadow-emerald-900/40"

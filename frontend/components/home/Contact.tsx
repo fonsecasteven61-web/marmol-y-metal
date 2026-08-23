@@ -34,7 +34,7 @@ export default function Contact() {
                 <h3 className="text-sm font-bold text-slate-900">Teléfono & WhatsApp</h3>
                 <p className="text-xs text-slate-500 mb-2">Atención inmediata para cotizaciones</p>
                 <a 
-                  href="https://wa.me/50488629149" 
+                  href="https://wa.me/50493181006" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-[#0e6251] font-semibold text-sm hover:underline flex items-center gap-1.5"
@@ -88,7 +88,7 @@ export default function Contact() {
                 
                 const text = `Hola, mi nombre es ${name}.\n\nMe interesa cotizar el servicio de: ${service}\n\nDetalles del mensaje:\n${msg}`;
                 
-                window.open(`https://wa.me/50488629149?text=${encodeURIComponent(text)}`, '_blank');
+                window.open(`https://wa.me/50493181006?text=${encodeURIComponent(text)}`, '_blank');
               }}
               className="space-y-4"
             >

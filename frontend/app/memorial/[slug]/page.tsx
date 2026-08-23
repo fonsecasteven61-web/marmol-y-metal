@@ -209,7 +209,7 @@ export default async function MemorialPublicoPage({ params }: PageProps) {
             Ponte en contacto con el equipo de Mármol y Metal para asesorarte con placas, lápidas o servicios memoriales.
           </p>
           <a 
-            href={`https://wa.me/50488629149?text=Hola,%20estoy%20viendo%20el%20memorial%20de%20${encodeURIComponent(memorial.nombreDifunto)}%20y%20me%20gustaría%20más%20información.`}
+            href={`https://wa.me/50493181006?text=Hola,%20estoy%20viendo%20el%20memorial%20de%20${encodeURIComponent(memorial.nombreDifunto)}%20y%20me%20gustaría%20más%20información.`}
             target="_blank" 
             rel="noopener noreferrer"
             style={{ 

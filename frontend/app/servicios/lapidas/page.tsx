@@ -49,7 +49,7 @@ export default function LapidasPage() {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://wa.me/50488629149?text=Hola,%20deseo%20cotizar%20una%20Lápida%20personalizada"
+                href="https://wa.me/50493181006?text=Hola,%20deseo%20cotizar%20una%20Lápida%20personalizada"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#0e6251] hover:bg-[#0b4d3f] text-white px-6 py-3.5 rounded-xl font-bold text-sm flex items-center space-x-2 transition-all shadow-md"

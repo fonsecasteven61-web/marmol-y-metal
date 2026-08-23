@@ -159,7 +159,7 @@ export default function MemorialPlus() {
             </div>
 
             <a
-              href="https://wa.me/50488629149?text=Hola,%20deseo%20más%20información%20sobre%20el%20servicio%20Memorial%20Plus"
+              href="https://wa.me/50493181006?text=Hola,%20deseo%20más%20información%20sobre%20el%20servicio%20Memorial%20Plus"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#0e6251] hover:bg-[#0b4d3f] text-white py-4 px-6 rounded-xl font-bold text-sm flex items-center justify-center space-x-2 shadow-lg hover:shadow-emerald-900/50 transition-all text-center"

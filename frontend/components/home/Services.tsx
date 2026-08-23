@@ -117,7 +117,7 @@ export default function Services() {
                   </Link>
 
                   <a
-                    href={`https://wa.me/50488629149?text=Hola,%20deseo%20cotizar%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
+                    href={`https://wa.me/50493181006?text=Hola,%20deseo%20cotizar%20el%20servicio%20de%20${encodeURIComponent(service.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-[#0e6251] hover:bg-[#0b4d3f] text-white p-2.5 rounded-xl transition-all shadow-md"
