@@ -87,7 +87,7 @@ export default async function AdminClientesPage() {
                 </td>
               </tr>
             ) : (
-              clientes.map((c) => (
+              clientes.map((c: any) => (
                 <tr key={c.id} style={{ borderBottom: "1px solid #e5e7eb" }}>
                   <td style={{ padding: "15px", fontWeight: "bold", color: "#111827" }}>{c.nombre}</td>
                   <td style={{ padding: "15px", color: "#4b5563" }}>{c.telefono}</td>
@@ -96,7 +96,7 @@ export default async function AdminClientesPage() {
                     {c.memoriales.length === 0 ? (
                       <span style={{ color: "#9ca3af", fontSize: "0.85rem" }}>Sin memorial asociado</span>
                     ) : (
-                      c.memoriales.map((m) => (
+                      c.memoriales.map((m: any) => (
                         <div key={m.slug} style={{ fontSize: "0.9rem" }}>
                           <Link href={`/memorial/${m.slug}`} target="_blank" style={{ color: "#2563eb", textDecoration: "none" }}>
                             {m.nombreDifunto} ↗
