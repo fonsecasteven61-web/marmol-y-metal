@@ -44,7 +44,7 @@ export default function Header() {
         <div className="flex items-center space-x-6">
           <div className="hidden lg:block h-8 w-[1px] bg-gray-200"></div>
           <a
-            href="https://wa.me/50488629149"
+            href="https://wa.me/50493181006"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#0e6251] hover:bg-[#0b4d3f] text-white px-5 py-2.5 rounded-lg flex items-center space-x-2 font-medium transition-colors shadow-sm"
