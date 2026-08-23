@@ -47,7 +47,7 @@ export default async function AdminMensajesPage() {
                 </td>
               </tr>
             ) : (
-              mensajes.map((m) => (
+              mensajes.map((m: any) => (
                 <tr key={m.id} style={{ borderBottom: "1px solid #e5e7eb" }}>
                   <td style={{ padding: "15px" }}>
                     <Link 

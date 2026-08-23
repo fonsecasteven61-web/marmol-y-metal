@@ -88,9 +88,11 @@ export default async function EditarMemorialPage({ params }: PageProps) {
                 style={{ width: "100%", padding: "10px", borderRadius: "6px", border: "1px solid #d1d5db", boxSizing: "border-box", background: "white" }}
               >
                 <option value="">Sin cliente asignado</option>
-                {clientes.map((c) => (
-                  <option key={c.id} value={c.id}>{c.nombre} ({c.telefono || "Sin teléfono"})</option>
-                ))}
+                {clientes.map((c: any) => (
+  <option key={c.id} value={c.id}>
+    {c.nombre}
+  </option>
+))}
               </select>
             </div>
 
