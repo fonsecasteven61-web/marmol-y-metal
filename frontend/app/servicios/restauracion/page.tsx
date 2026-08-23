@@ -61,7 +61,7 @@ export default function RestauracionPage() {
           </div>
 
           {/* IMAGEN DESTACADA (CORREGIDA SIN RECORTE) */}
-          <div className="relative h-[380px] md:h-[450px] w-full rounded-3xl overflow-hidden border border-slate-200 bg-white p-4 shadow-sm flex items-center justify-center">
+          <div className="relative h-95 md:h-112.5 w-full rounded-3xl overflow-hidden border border-slate-200 bg-white p-4 shadow-sm flex items-center justify-center">
             <Image
               src="/images/restauracion-hero.jpeg"
               alt="Restauración de Mármol y Granito - Mármol y Metal S. de R.L."

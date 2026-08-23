@@ -97,7 +97,7 @@ export default function MemorialPlus() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           
           {/* LO QUE RECIBE & OPCIONES DE APLICACIÓN */}
-          <div className="bg-gradient-to-br from-[#0e6251]/40 to-black/40 border border-emerald-500/30 rounded-3xl p-8 flex flex-col justify-between">
+          <div className="bg-linear-to-br from-[#0e6251]/40 to-black/40 border border-emerald-500/30 rounded-3xl p-8 flex flex-col justify-between">
             <div>
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center space-x-2">
                 <CheckCircle2 className="w-6 h-6 text-emerald-400" />

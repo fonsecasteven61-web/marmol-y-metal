@@ -6,7 +6,7 @@ import { useState } from "react";
 interface SubidorProps {
   onUploadSuccess: (url: string) => void;
   label?: string;
-  tipo?: "image" | "video" | "auto";
+  tipo?: "video" | "audio" | "auto" | "image";
 }
 
 export default function SubidorArchivo({ onUploadSuccess, label = "Subir Archivo", tipo = "image" }: SubidorProps) {
