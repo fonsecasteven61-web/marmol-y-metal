@@ -40,7 +40,7 @@ export default function Contact() {
                   className="text-[#0e6251] font-semibold text-sm hover:underline flex items-center gap-1.5"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-600" />
-                  +504 8862-9149
+                  +504 9318-1006
                 </a>
               </div>
             </div>
