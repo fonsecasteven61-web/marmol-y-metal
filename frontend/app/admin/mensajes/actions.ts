@@ -26,7 +26,17 @@ export async function moderarMensaje(formData: FormData) {
       });
     }
 
+    // Obtenemos el slug para actualizar también la vista pública del memorial al instante
+    const mensajeActualizado = await prisma.mensaje.findUnique({
+      where: { id: mensajeId },
+      include: { memorial: { select: { slug: true } } },
+    });
+
     revalidatePath("/admin/mensajes");
+
+    if (mensajeActualizado?.memorial?.slug) {
+      revalidatePath(`/memorial/${mensajeActualizado.memorial.slug}`);
+    }
   } catch (error) {
     console.error("Error al moderar mensaje:", error);
     throw new Error("No se pudo completar la acción de moderación.");
