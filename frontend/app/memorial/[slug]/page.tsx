@@ -83,15 +83,21 @@ export default async function MemorialPublicoPage({ params }: PageProps) {
           </p>
         </div>
 
-        {/* 3. Galería de Fotografías */}
+        {/* 3. Galería de Fotografías (Actualizada con object-fit para evitar recortes extraños) */}
         {memorial.fotografias && memorial.fotografias.length > 0 && (
           <div style={{ background: "white", borderRadius: "12px", padding: "30px", boxShadow: "0 4px 6px rgba(0,0,0,0.05)", marginBottom: "30px" }}>
             <h3 style={{ color: "#374151", marginBottom: "20px", fontSize: "1.3rem" }}>Galería de Fotografías</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "15px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "20px" }}>
               {memorial.fotografias.map((foto: any) => (
-                <div key={foto.id} style={{ borderRadius: "8px", overflow: "hidden", background: "#f9f9f9", border: "1px solid #e5e7eb" }}>
-                  <img src={foto.urlImagen} alt={foto.descripcion || "Recuerdo"} style={{ width: "100%", height: "180px", objectFit: "cover" }} />
-                  {foto.descripcion && <p style={{ padding: "10px", fontSize: "0.85rem", color: "#4b5563", margin: 0 }}>{foto.descripcion}</p>}
+                <div key={foto.id} style={{ borderRadius: "12px", overflow: "hidden", background: "#f9f9f9", border: "1px solid #e5e7eb", boxShadow: "0 2px 5px rgba(0,0,0,0.05)" }}>
+                  <div style={{ width: "100%", height: "200px", overflow: "hidden" }}>
+                    <img 
+                      src={foto.urlImagen} 
+                      alt={foto.descripcion || "Recuerdo"} 
+                      style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.3s ease" }} 
+                    />
+                  </div>
+                  {foto.descripcion && <p style={{ padding: "12px", fontSize: "0.85rem", color: "#4b5563", margin: 0 }}>{foto.descripcion}</p>}
                 </div>
               ))}
             </div>
@@ -116,7 +122,7 @@ export default async function MemorialPublicoPage({ params }: PageProps) {
           </div>
         )}
 
-        {/* 4.5. Sección de Ubicación Guiada (Añadida) */}
+        {/* 4.5. Sección de Ubicación Guiada */}
         {memorial.ubicacionUrl && (
           <div style={{ background: "white", borderRadius: "12px", padding: "30px", boxShadow: "0 4px 6px rgba(0,0,0,0.05)", marginBottom: "30px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "20px" }}>
             <div>
@@ -149,7 +155,6 @@ export default async function MemorialPublicoPage({ params }: PageProps) {
         <div style={{ background: "white", borderRadius: "12px", padding: "30px", boxShadow: "0 4px 6px rgba(0,0,0,0.05)", marginBottom: "30px" }}>
           <h3 style={{ color: "#374151", marginBottom: "20px", fontSize: "1.3rem" }}>Libro de Condolencias</h3>
           
-          {/* Formulario para dejar mensaje */}
           <form action={enviarMensajeCondolencia} style={{ background: "#f9fafb", padding: "20px", borderRadius: "8px", marginBottom: "30px", border: "1px solid #e5e7eb" }}>
             <input type="hidden" name="memorialId" value={memorial.id} />
             <input type="hidden" name="slug" value={memorial.slug} />
@@ -187,7 +192,6 @@ export default async function MemorialPublicoPage({ params }: PageProps) {
             </button>
           </form>
 
-          {/* Listado de mensajes aprobados */}
           {(!memorial.mensajes || memorial.mensajes.length === 0) ? (
             <p style={{ color: "#6b7280", fontStyle: "italic", textAlign: "center" }}>Aún no hay mensajes públicos publicados.</p>
           ) : (
