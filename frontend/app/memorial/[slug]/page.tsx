@@ -83,21 +83,21 @@ export default async function MemorialPublicoPage({ params }: PageProps) {
           </p>
         </div>
 
-        {/* 3. Galería de Fotografías (Actualizada con object-fit para evitar recortes extraños) */}
+        {/* 3. Galería de Fotografías (Solución Definitiva: Sin recortes ni deformaciones) */}
         {memorial.fotografias && memorial.fotografias.length > 0 && (
           <div style={{ background: "white", borderRadius: "12px", padding: "30px", boxShadow: "0 4px 6px rgba(0,0,0,0.05)", marginBottom: "30px" }}>
             <h3 style={{ color: "#374151", marginBottom: "20px", fontSize: "1.3rem" }}>Galería de Fotografías</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "20px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "20px" }}>
               {memorial.fotografias.map((foto: any) => (
-                <div key={foto.id} style={{ borderRadius: "12px", overflow: "hidden", background: "#f9f9f9", border: "1px solid #e5e7eb", boxShadow: "0 2px 5px rgba(0,0,0,0.05)" }}>
-                  <div style={{ width: "100%", height: "200px", overflow: "hidden" }}>
+                <div key={foto.id} style={{ borderRadius: "12px", overflow: "hidden", background: "#111827", border: "1px solid #e5e7eb", boxShadow: "0 2px 5px rgba(0,0,0,0.05)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                  <div style={{ width: "100%", maxHeight: "420px", display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden", backgroundColor: "#0b0f17" }}>
                     <img 
                       src={foto.urlImagen} 
                       alt={foto.descripcion || "Recuerdo"} 
-                      style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.3s ease" }} 
+                      style={{ width: "100%", height: "auto", maxHeight: "420px", objectFit: "contain", display: "block" }} 
                     />
                   </div>
-                  {foto.descripcion && <p style={{ padding: "12px", fontSize: "0.85rem", color: "#4b5563", margin: 0 }}>{foto.descripcion}</p>}
+                  {foto.descripcion && <p style={{ padding: "12px", fontSize: "0.85rem", color: "#4b5563", margin: 0, width: "100%", background: "#fff" }}>{foto.descripcion}</p>}
                 </div>
               ))}
             </div>
