@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   description:
     "Especialistas en lápidas, placas conmemorativas y memoriales digitales con código QR.",
   icons: {
-    icon: "/logo-mm.ico",
-    shortcut: "/logo-mm.ico",
-    apple: "/logo-mm.ico",
+    icon: "/images/logo-mm.ico",
+    shortcut: "/images/logo-mm.ico",
+    apple: "/images/logo-mm.ico",
   },
   openGraph: {
     title: "Mármol y Metal S. de R.L.",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Mármol y Metal",
     images: [
       {
-        url: "/logo-mm.ico",
+        url: "/images/logo-mm.ico",
         width: 800,
         height: 800,
       },
